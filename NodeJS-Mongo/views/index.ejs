@@ -1,0 +1,33 @@
+<!-- @afreen *-->
+<!-- ejs file to display the home page*-->
+<!--includes partials like header,navigation and footer-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sports Meet Up</title>
+    <link rel="stylesheet" href="../assets/styles/style.css">
+    <link rel="stylesheet" href="../assets/styles/index.css">
+
+</head>
+
+<body>
+    
+    <%- include('partials/header.ejs')%>
+    <%- include('partials/navigation.ejs')%>
+    <main>
+        <section class="welcome">
+
+            <h2>Welcome to the Sports Carnival !!</h2>
+            <p>
+                This is the biggest sports event in North Carolina. People from different parts of the country come
+                together to take part in various events and competitions. Stay tuned to get updates of various
+                events.<br><br>
+                Checkout the connections section to browse various events.
+            </p>
+
+        </section>
+    </main>
+    <%- include('partials/footer.ejs') %>
+</body>

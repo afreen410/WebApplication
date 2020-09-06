@@ -1,0 +1,56 @@
+<!-- @afreen *-->
+<!-- ejs file to display the saved connections page*-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sports Meet Up</title>
+    <link rel="stylesheet" href="../assets/styles/style.css">
+    <link rel="stylesheet" href="../assets/styles/savedConnections.css">
+
+</head>
+
+<body>
+    <%- include('partials/header.ejs')%>
+    <%- include('partials/navigation.ejs')%>
+    <main class="main-content">
+        <section>
+            <h3>
+               <%=user%>'s Connections
+            </h3>
+            <%if(userprofile.length!=0){%>
+            <table class="connections">
+                <tr>
+                   <th>Connections</th>
+                   <th>Category</th>
+                   <th>Going ?</th>
+                   <th>Update/Delete</th>
+                </tr>
+              
+                <%for(var i=0; i< userprofile.length;i++){  %>
+                <tr>
+                        <td>
+                            <%=userprofile[i].connection.connectionID%> -  <%=userprofile[i].connection.connectionName%>
+                        </td>
+                        <td>
+                           <%=userprofile[i].connection.connectionTopic%>
+                        </td>
+                        <td>
+                            <%=userprofile[i].rsvp%>
+                        </td>
+                        <td>
+                            <a href="/updateconnection?connobj=<%=userprofile[i].connection.connectionID%>" class="update">Update</a>
+                            <a href="/deleteconnection?connobj=<%=userprofile[i].connection.connectionID%>" class="delete">Delete</a>
+                        </td>
+                    </tr>
+                    <%}%>
+            </table>
+            <%}else{%>
+                No existing connections.
+                <%}%>
+            
+        </section>
+    </main>
+    <%- include('partials/footer.ejs') %>
+</body>

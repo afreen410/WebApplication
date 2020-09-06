@@ -1,0 +1,59 @@
+<!-- @afreen *-->
+<!-- ejs file to display the login page*-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sports Meet Up</title>
+  <link rel="stylesheet" href="../assets/styles/style.css">
+  <link rel="stylesheet" href="../assets/styles/login.css">
+</head>
+
+
+<body>
+
+  <%- include('partials/header.ejs')%>
+  <%- include('partials/navigation.ejs')%>
+
+  <main>
+    <%if(!success){%>
+      <div class="error-block">
+        Validation Errors : 
+          <ul>
+       <%for(i in errors){%>
+  <li><%=errors[i].msg%></li>
+         <%}%> 
+        </ul>
+      </div>
+          <%}%>
+    <section class="form">
+    <form action="/login" method="POST">
+    <div class="details">
+    <h2>Welcome to sports meet up.<br/></h2>
+    Enter User ID and Password to login.
+    </div>
+    
+    <div class="form-item">
+    <label for="username">User ID : </label>
+    <input type="text" id="username" style="margin-left:55px" name="username" placeholder="user name" required>
+    </div>
+    <div class="form-item">
+    <label for="pwd">Password : </label> &nbsp;
+    <input type="password" id="pwd" name="password" placeholder="password" required>
+    </div>
+    
+    <div class="login-button">
+    <input type="submit" class="submit-button" value="Login">
+    </div>
+    
+    
+    </form>
+    </section>
+    </main>
+  <%- include('partials/footer.ejs') %>
+
+
+
+
+</body>

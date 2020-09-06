@@ -1,0 +1,52 @@
+/* @afreen */
+/*css styles for connection page*/
+.main-content {
+    margin-left: 20px;
+}
+
+.event-detail {
+    float: left;
+    width: 70%;
+}
+
+.user-image {
+    height: 200px;
+    width: 160px;
+    float: left;
+}
+
+.host-info {
+    position: relative;
+    top: 20px;
+    left: 30px;
+}
+
+.event-info {
+    clear: both;
+}
+
+.rsvp {
+    position: relative;
+    top: 50px;
+    width: 30%;
+    float: right;
+}
+
+.choice {
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+}
+
+.red-button {
+    background-color: red;
+}
+
+.green-button {
+    background-color: green;
+}
+
+.blue-button {
+    background-color: skyblue;
+}

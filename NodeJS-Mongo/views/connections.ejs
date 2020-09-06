@@ -1,0 +1,44 @@
+<!-- @afreen *-->
+<!-- ejs file to display the connections page*-->
+<!--includes partials like header,navigation and footer-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sports Meet Up</title>
+    <link rel="stylesheet" href="../assets/styles/style.css">
+    <link rel="stylesheet" href="../assets/styles/connections.css">
+</head>
+
+<body>
+    <%- include('partials/header.ejs')%>
+    <%- include('partials/navigation.ejs')%>
+    <main class="main-content">
+        <section>
+            <h2>Sport Events Available : </h2>
+            <article class="indoor">
+             <% var mylist=[];
+                connections.forEach(function(connection){ 
+                    if(!mylist.includes(connection.connectionTopic)){
+                        mylist.push(connection.connectionTopic);
+                    }
+                })%> 
+            <% for(category in mylist){%>
+                <header>
+                    <h3> <%=mylist[category]%> </h3>
+                </header>
+                
+                <ul>
+                <%connections.forEach(function(connection){ 
+                    if(connection.connectionTopic==mylist[category]){ %> 
+         <li> <a href="/connections/<%=connection.connectionID%>"><%= connection.connectionName %></a></li>
+       
+            <% }})%>
+                    </ul>
+        <% }%>    
+            </article>
+        </section>
+    </main>
+<%- include('partials/footer.ejs') %>
+</body>

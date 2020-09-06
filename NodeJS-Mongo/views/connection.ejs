@@ -1,0 +1,56 @@
+<!-- @afreen *-->
+<!-- ejs file to display the connection page*-->
+<!--includes partials like header,navigation and footer-->
+<!--displays dynamic data of the connection object which is passed while rendering the view-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sports Meet Up</title>
+    <link rel="stylesheet" href="../assets/styles/style.css">
+    <link rel="stylesheet" href="../assets/styles/connection.css">
+
+</head>
+
+<body>
+    
+    <%- include('partials/header.ejs')%>
+    <%- include('partials/navigation.ejs')%>
+    <main class="main-content">
+       
+        <section class="event-detail">
+<h1>Event Details</h1>
+            <article>
+                <h2>
+                    
+                    <%=connection.connectionID%> - 
+                    <%=connection.connectionName%>
+                </h2>
+                <img src="../assets/images/host1.jpeg" class="user-image" alt="host">
+                <div class="host-info">
+                    Hosted by Afreen<br />
+                    Date - <%=connection.date%><br />
+                    Start Time - <%=connection.starttime%> <br />
+                    End Time - <%=connection.endtime%> <br />
+                    Location - <%=connection.location%><br />
+                </div>
+            </article>
+            <article class="event-info">
+                <h2>
+                    Details
+                </h2>
+                <p>
+                    <%=connection.details%>
+                </p>
+            </article>
+        </section>
+        <aside class="rsvp">
+            Interested in the event ?<br><br>
+            <a href="/savedConnections/?rsvp=yes&connobj=<%=connection.connectionID%>" class="choice green-button">Yes</a>
+            <a href="/savedConnections/?rsvp=no&connobj=<%=connection.connectionID%>" class="choice red-button">No</a>
+            <a href="/savedConnections/?rsvp=maybe&connobj=<%=connection.connectionID%>" class="choice blue-button">Maybe</a>
+        </aside>
+    </main>
+    <%- include('partials/footer.ejs') %>
+</body>

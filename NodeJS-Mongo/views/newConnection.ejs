@@ -1,0 +1,94 @@
+<!-- @afreen *-->
+<!-- ejs file to display the new connections page*-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sports Meet Up</title>
+  <link rel="stylesheet" href="../assets/styles/style.css">
+  <link rel="stylesheet" href="../assets/styles/newConn.css">
+</head>
+
+
+<body>
+
+  <%- include('partials/header.ejs')%>
+  <%- include('partials/navigation.ejs')%>
+
+
+  <main>
+    <%if(!success){%>
+    <div class="error-block">
+     <b> Validation Errors : </b>
+        <ul>
+     <%for(i in errors){%>
+<li><p style="color:blue;margin:0;
+  padding:0;
+    line-height:18px;">Entered value : <%=errors[i].value%></p>
+ <p style="color:red;margin:0;
+ padding:0;
+   line-height:18px;">Error message : <%=errors[i].msg%></li></p> 
+       <%}%> 
+      </ul>
+    </div>
+        <%}%>
+  
+    <div style="margin-bottom: 10em;">
+    <section class="form">
+
+    <h3>Create a new connection.</h3>
+    <form action="/connections/newConnection" method="POST" style="margin-bottom: 30px;">
+      <div class="form-item">
+        <label for="connid">Connection ID : </label>
+        <input type="text" id="connid" placeholder="Connection ID" name="connid" required>
+        </div>
+      <div class="form-item">
+        <label for="name">Name : </label>
+        <input type="text" id="name" placeholder="Name" name="name" required>
+        </div>
+
+    <div class="form-item">
+    <label for="topic">Topic : </label>
+    <input type="text" id="topic" placeholder="Topic" name="topic" required>
+    </div>
+   
+    <div class="form-item">
+    <label for="details">Details:</label>
+   
+    <textarea id="details" rows="4" cols="30" placeholder="Enter details" name="details" required ></textarea>
+    </div>
+    <div class="form-item">
+      <label for="date">Date: </label>
+      <input type="date" id="date" name="date" required> 
+     
+      </div>
+      <div class="form-item">
+        <label for="stime">Start Time: </label>
+        <input type="time" id="stime" name="stime"> 
+        </div>
+        <div class="form-item">
+          <label for="etime">End Time: </label>
+          <input type="time" id="etime"  name="etime"> 
+          </div>
+    <div class="form-item">
+    <label for="where">Where : </label>
+    <input type="text" id="where" placeholder="Location" name="where">
+    </div>
+    
+
+    <div>
+    <input type="submit" class="submit-button" value="Create Connection">
+    </div>
+    
+    
+    </form>
+    </section>
+  </div>
+    </main>
+  <%- include('partials/footer.ejs') %>
+
+
+
+
+</body>

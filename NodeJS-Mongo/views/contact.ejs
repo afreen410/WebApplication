@@ -1,0 +1,38 @@
+<!-- @afreen *-->
+<!-- ejs file to display the contact page*-->
+<!--includes partials like header,navigation and footer-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sports Meet Up</title>
+    <link rel="stylesheet" href="../assets/styles/style.css">
+
+
+</head>
+
+<body>
+    
+    <%- include('partials/header.ejs')%>
+    <%- include('partials/navigation.ejs')%>
+    <main class="main-content">
+        <section class="event-detail">
+            <h2 style="text-align: center;" class="about-us">Contact Us </h2>
+            <article>
+                
+                <div class="about-us">
+                  
+                    <h3>
+                        For further details contact us at,<br/>
+                        Email : a4@uncc.edu<br/>
+                        Phone : (980)123-4567<br/>
+                        Address : University Terrace Dr, Charlotte, NC
+                    </h3>
+                </div>
+            </article>
+            
+        </section>
+    </main>
+    <%- include('partials/footer.ejs') %>
+</body>

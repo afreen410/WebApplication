@@ -1,0 +1,33 @@
+/* @afreen */
+/*css styles for saved connections page*/
+.main-content {
+    width: 600px;
+    margin: 30px auto;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+main{
+    overflow: auto;
+}
+
+th, td {
+    padding: 10px;
+}
+
+td a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 5px;
+}
+
+.update
+{
+    background-color: rgb(0, 179, 255);
+}
+
+.delete{
+    background-color: rgb(242, 64, 64);
+}

@@ -1,0 +1,19 @@
+<!-- @afreen *-->
+<!-- ejs file to display the header*-->
+<header class="meetup-head">
+    <a href="/index"> <img src="../assets/images/logo.png" class="logo" alt="meetup-logo"></a>
+    <ul class="user-navigation">
+        <li class="user-nav-item"><a href="/newConnection" class="user-nav-link">Start a new Connection</a>&nbsp;&nbsp;&nbsp;|</li>
+        
+        <%if(typeof user != 'undefined'){ %>
+            <li class="user-nav-item"><a href="/logout" class="user-nav-link">Logout</a>&nbsp;&nbsp;|</li>
+<li class="user-nav-item"><a href="/savedConnections" class="myconnitem">MyConnections</a></li>
+
+            <% } else { %>
+                <li class="user-nav-item"><a href="/login" class="user-nav-link">Login</a>&nbsp;&nbsp;|</li>
+                <li class="user-nav-item"><a href="/signup" class="user-nav-link">Sign Up</a></li> 
+                <% } %>
+          
+        
+    </ul>
+</header>

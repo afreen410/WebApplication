@@ -1,0 +1,43 @@
+/* @afreen */
+/*css styles for connections page*/
+.main-content {
+    margin: 20px;
+    margin-bottom:10em;
+}
+li a {
+ text-decoration: none;
+}
+.indoor a:link {
+    color: black;
+  }
+  
+
+.indoor a:visited {
+    color: green;
+  }
+  
+
+.indoor a:hover {
+    color: hotpink;
+  }
+
+.indoor a:active {
+    color: blue;
+  }
+  .outdoor a:link {
+    color: black;
+  }
+  
+
+.outdoor a:visited {
+    color: green;
+  }
+  
+
+.outdoor a:hover {
+    color: hotpink;
+  }
+
+.outdoor a:active {
+    color: blue;
+  }

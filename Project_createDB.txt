@@ -1,0 +1,122 @@
+Note :
+
+User Validation is implemented in the application, make sure to enter correct user name and password to test the application.
+
+Test User -- USERID : Test123 | PASSWORD : Test123
+
+Afreen -- USERID : AF801136632 | PASSWORD : Afreen123
+
+Mongo DB commands : 
+
+
+1. Setup database and populate data -- copy paste the below lines in terminal
+
+
+
+use sports-meetup
+db.createCollection("users")
+db.createCollection("connections")
+db.createCollection("userconnections")
+db.connections.insertMany([{connectionID:'OUT101',connectionName:'Tennis',connectionTopic:'Outdoor Sports',details:'The Tennis match being held is an inter-school match. Buy tickets at the student union tennis counter.',date:'02-20-20',starttime:'9:00am',endtime:'10:00am',location:'Webb Road NC'},{connectionID:'OUT102',connectionName:'Football',connectionTopic:'Outdoor Sports',details:'The Football match being held is an inter-school match. Buy tickets at the student union football counter.',date:'02-21-20',starttime:'10:00am',endtime:'11:00am',location:'Zombie World, Raleigh, NC'},
+... {connectionID:'OUT103',connectionName:'Basketball',connectionTopic:'Outdoor Sports',details:'The Basketball match being held is an inter-school match. Buy tickets at the student union basketball counter.',date:'02-22-20',starttime:'11:00am',endtime:'12:00pm',location:'Lala Land, Greensboro, NC'},
+... {connectionID:'IND101',connectionName:'Chess',connectionTopic:'Indoor Sports',details:'The Chess match being held is an inter-school match. Buy tickets at the student union chess counter.',date:'02-23-20',starttime:'12:00pm',endtime:'2:00pm',location:'Page Ground, Hillsboro, NC'},
+... {connectionID:'IND102',connectionName:'Table Tennis',connectionTopic:'Indoor Sports',details:'The Table Tennis match being held is an inter-school match. Buy tickets at the student union table tennis counter.',date:'02-24-20',starttime:'1:00pm',endtime:'2:00pm',location:'Webb Road NC'},
+... {connectionID:'IND103',connectionName:'Badminton',connectionTopic:'Indoor Sports',details:'The Badminton match being held is an inter-school match. Buy tickets at the student union badminton counter.',date:'02-25-20',starttime:'2:00pm',endtime:'4:00pm',location:'Geico Park, Charlotte, NC'},
+... {connectionID:'IND104',connectionName:'Carrom',connectionTopic:'Indoor Sports',details:'The carrot match being held is an inter-school match. Buy tickets at the student union carrot counter.',date:'02-26-20',starttime:'2:00pm',endtime:'3:00pm',location:'Garner Ground, Raleigh, NC'},
+... {connectionID:'ABC101',connectionName:'F1',connectionTopic:'Racing',details:'Racing event begins this Spring!',date:'02-27-20',starttime:'5:00pm',endtime:'6:00pm',location:'Niner Nation, Charlotte, NC'}
+... ])
+db.users.insertOne({ userID:'AF801136632', firstName:'Afreen', lastName:'.', email:'a4@uncc.edu', password:'Afreen123', address:'9551 university terrace dr', city:'Charlotte', state:'North Carolina', zipcode:28262, country:'USA' });
+db.users.insertOne({ userID:'Test123', firstName:'Test', lastName:'User', email:'test123@uncc.edu', password:'Test123', address:'UNC Charlotte', city:'Charlotte', state:'North Carolina', zipcode:28262, country:'USA' });
+
+
+
+
+2. Resetting database to original state :
+
+
+Drop entire database:
+
+>use sports-meetup
+
+>db.dropDatabase()
+
+
+Drop one collection at a time :
+
+>db.users.drop()
+
+>db.connections.drop()
+
+>db.userconnections.drop()
+
+
+
+
+------- Explanation --------
+
+1.Create sports-meetup database.
+
+> use sports-meetup
+
+2.Create users collection.
+
+> db.createCollection("users")
+
+3. Create connections collection.
+
+> db.createCollection("connections")
+
+4.Create userconnections collection.
+
+> db.createCollection("userconnections")
+
+5. Display all the connections created.
+
+> db.getCollectionNames()
+[ "connections", "userconnections", "users" ]
+
+6.Adding a list of connections. (This is added before running the application to display a list of connections when user logs in.)
+
+
+>db.connections.insertMany([{connectionID:'OUT101',connectionName:'Tennis',connectionTopic:'Outdoor Sports',details:'The Tennis match being held is an inter-school match. Buy tickets at the student union tennis counter.',date:'02-20-20',starttime:'9:00am',endtime:'10:00am',location:'Webb Road NC'},{connectionID:'OUT102',connectionName:'Football',connectionTopic:'Outdoor Sports',details:'The Football match being held is an inter-school match. Buy tickets at the student union football counter.',date:'02-21-20',starttime:'10:00am',endtime:'11:00am',location:'Zombie World, Raleigh, NC'},
+... {connectionID:'OUT103',connectionName:'Basketball',connectionTopic:'Outdoor Sports',details:'The Basketball match being held is an inter-school match. Buy tickets at the student union basketball counter.',date:'02-22-20',starttime:'11:00am',endtime:'12:00pm',location:'Lala Land, Greensboro, NC'},
+... {connectionID:'IND101',connectionName:'Chess',connectionTopic:'Indoor Sports',details:'The Chess match being held is an inter-school match. Buy tickets at the student union chess counter.',date:'02-23-20',starttime:'12:00pm',endtime:'2:00pm',location:'Page Ground, Hillsboro, NC'},
+... {connectionID:'IND102',connectionName:'Table Tennis',connectionTopic:'Indoor Sports',details:'The Table Tennis match being held is an inter-school match. Buy tickets at the student union table tennis counter.',date:'02-24-20',starttime:'1:00pm',endtime:'2:00pm',location:'Webb Road NC'},
+... {connectionID:'IND103',connectionName:'Badminton',connectionTopic:'Indoor Sports',details:'The Badminton match being held is an inter-school match. Buy tickets at the student union badminton counter.',date:'02-25-20',starttime:'2:00pm',endtime:'4:00pm',location:'Geico Park, Charlotte, NC'},
+... {connectionID:'IND104',connectionName:'Carrom',connectionTopic:'Indoor Sports',details:'The carrot match being held is an inter-school match. Buy tickets at the student union carrot counter.',date:'02-26-20',starttime:'2:00pm',endtime:'3:00pm',location:'Garner Ground, Raleigh, NC'},
+... {connectionID:'ABC101',connectionName:'F1',connectionTopic:'Racing',details:'Racing event begins this Spring!',date:'02-27-20',starttime:'5:00pm',endtime:'6:00pm',location:'Niner Nation, Charlotte, NC'}
+... ])
+
+
+
+7. Add a new connection in the database when application is running to check that the connections are dynamically rendered when a user navigates to connections page!
+
+
+db.connections.insertOne({connectionID:'NEW123',connectionName:'Test Connection',connectionTopic:'New Category',details:'Adding a new connection in the database when application is running to check that the connections are dynamically rendered when a user navigates to connections page!',date:'04-17-2020',starttime:'5:00pm',endtime:'6:00pm',location:'University of North Carolina at Charlotte.'})
+
+
+8. Adding a user to users collection :
+
+
+---------| USERID : AF801136632 | PASSWORD : Afreen123 | ---------------
+
+>db.users.insertOne({ userID:'AF801136632', firstName:'Afreen', lastName:'.', email:'a4@uncc.edu', password:'Afreen123', address:'9551 university terrace dr', 
+city:'Charlotte', state:'North Carolina', zipcode:28262, country:'USA' });
+
+9. Adding a test user :
+
+---------| USERID : Test123 | PASSWORD : Test123 | ---------------
+
+db.users.insertOne({ userID:'Test123', firstName:'Test', lastName:'User', email:'test123@uncc.edu', password:'Test123', address:'UNC Charlotte', city:'Charlotte', state:'North Carolina', zipcode:28262, country:'USA' });
+
+
+
+
+
+
+
+
+
+
+
+
